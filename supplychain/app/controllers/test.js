@@ -7,7 +7,7 @@ export async function getTest (req, res){
         const name =req.query.name
         const id = req.params.id
         await getContract().then(async contract =>{
-            await contract.methods.getTest().call().then(success => {
+            await contract.methods.getKiemDinhData(id).call().then(success => {
                 res.status(200).json({success: success, id, name})
             }).catch(error => console.error(error))
         })
