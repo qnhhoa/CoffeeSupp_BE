@@ -2,7 +2,6 @@ import { getContract } from "../contract/testContract.js"
 
 export async function getTest (req, res){
     // req.body.id
- 
     try{
         const name =req.query.name
         const id = req.params.id
