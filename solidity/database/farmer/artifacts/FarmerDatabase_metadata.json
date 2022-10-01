@@ -71,10 +71,424 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "batchId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "prepareId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "time",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "quantity",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct FolWarehouse",
+						"name": "item",
+						"type": "tuple"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "addFolWarehouse",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "harvestId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "farmerId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "plantId",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Harvest",
+						"name": "item",
+						"type": "tuple"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "addHarvest",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "plantId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "farmerId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum CATEGORY",
+								"name": "category",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "testTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "area",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "production",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Plant",
+						"name": "item",
+						"type": "tuple"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "addPlant",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "prepareId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "farmerId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "listHarvestId",
+								"type": "uint256[]"
+							}
+						],
+						"internalType": "struct Prepare",
+						"name": "item",
+						"type": "tuple"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "addPrepare",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "destroy",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "getListFarmer",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "farmerId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Farmer[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "getListFolWarehouse",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "batchId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "prepareId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "time",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "quantity",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct FolWarehouse[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "getListHarvest",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "harvestId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "farmerId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "plantId",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Harvest[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "getListPlant",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "plantId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "farmerId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum CATEGORY",
+								"name": "category",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "testTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "area",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "production",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Plant[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "secret",
+						"type": "bytes32"
+					}
+				],
+				"name": "getListPrepare",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "prepareId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "farmerId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "listHarvestId",
+								"type": "uint256[]"
+							}
+						],
+						"internalType": "struct Prepare[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -155,11 +569,11 @@
 			]
 		},
 		"database/farmer/FarmerDatabase.sol": {
-			"keccak256": "0x3dd2cbacac60fc0856c448b10a5d91aa5d6ee47e74e57733a191df0760968871",
+			"keccak256": "0x704c4977194e7af4b47b6597025289a0514d37dfe2fbddd2144c40a2f988a17e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://11be7c2871d746b730ae9597be3f684d21c4fa660ebcf4d9b948b32cb5b276e5",
-				"dweb:/ipfs/QmXTCk9wXgUeFhbeNdVPktFwzJTGPbzJQCtqojhp9qXWQn"
+				"bzz-raw://e8cccc1856f855d1433091ec797ef1dc0a7f7209c17074fa792cd1fdf811484c",
+				"dweb:/ipfs/QmT9SHQ4xyAocc5Av8KG4L5wSKB5k5RUNn4qXeRuqZcqnH"
 			]
 		},
 		"struct/farmer/Farmer.sol": {
@@ -179,19 +593,19 @@
 			]
 		},
 		"struct/farmer/Harvest.sol": {
-			"keccak256": "0x4f600fc4887c2b936579421b2e123827c11b1a7a9ae05c83c3603865d0ed79a3",
+			"keccak256": "0x66976b80089906fe2ee5e1b40ae1d18b5f70a6825ea6c7d1dfc40f39e0c8e258",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5b4616a123f8cbf9b74c5b90a68765e0be6a95c4a684cc54631539f76de1b2b9",
-				"dweb:/ipfs/QmULmonVhtLUsmaTDZRHFMWy4rpZVQTxpJQpgjgT1hr1Ro"
+				"bzz-raw://31bf8e600a0159ad85084a06b3cf71bde4b1de131e648f7ab74a80afe306ac41",
+				"dweb:/ipfs/QmNaPaEfm8hYMRtPXJMniW8v6X3aXCAs4QTRrfnbG46SpR"
 			]
 		},
 		"struct/farmer/Plant.sol": {
-			"keccak256": "0xbd1f2d42944fdb220a068e06487c7d357f9b3abe0357ea4651e59e0a7745237f",
+			"keccak256": "0x7f240c70c93fbc53c8066c9a93e280dc3412f94cb6daa45c7357a77775b3e704",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5c00e3055e4061cd4f841ec80977e9bbfec459506fdd9734cef8d20a8be8b49c",
-				"dweb:/ipfs/QmZ8xKx6Jz9tPTisT53Em8gAhp1UjS2zaZgYrEsi7F2uKm"
+				"bzz-raw://1ef627716210f42cc16a1816c670b3185dcf3e6a1affe7e538f3df68fc5bdbd8",
+				"dweb:/ipfs/QmT1VuMgW5kFyn5MqwJc1fXzbDzVVFKVkhiY8mVyvzfqHV"
 			]
 		},
 		"struct/farmer/Prepare.sol": {
