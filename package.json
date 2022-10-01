@@ -1,9 +1,10 @@
 {
   "name": "supplychain",
   "version": "1.0.0",
+  "author": "",
   "description": "",
-  "main": "index.js",
- "type": "module",
+  "main": "app/app.js",
+  "type": "module",
   "scripts": {
     "test": "node build/app/app.js",
     "start": "nodemon babel-node --inspect -- app/app.js --inspect",
@@ -12,7 +13,6 @@
     "build": "yarn run clean && yarn run build-babel",
     "deploy": "yarn && yarn run build && node build/app/app.js"
   },
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "@babel/cli": "^7.18.10",
