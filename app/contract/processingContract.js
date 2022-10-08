@@ -5,46 +5,7 @@ export const ABI = [
     inputs: [
       {
         internalType: "uint256",
-        name: "famrerIdentifyId",
-        type: "uint256",
-      },
-      {
-        internalType: "string",
-        name: "farmerName",
-        type: "string",
-      },
-      {
-        internalType: "uint256",
-        name: "farmerPhone",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "famrerAddress",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "category",
-        type: "uint256",
-      },
-    ],
-    name: "addFarmer",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "prepareId",
+        name: "processingId",
         type: "uint256",
       },
       {
@@ -78,35 +39,6 @@ export const ABI = [
     inputs: [
       {
         internalType: "uint256",
-        name: "farmerId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "category",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "plantId",
-        type: "uint256",
-      },
-    ],
-    name: "addHarvest",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
         name: "category",
         type: "uint256",
       },
@@ -126,31 +58,31 @@ export const ABI = [
     inputs: [
       {
         internalType: "uint256",
-        name: "farmerId",
+        name: "processorId",
         type: "uint256",
       },
       {
-        internalType: "enum CATEGORY",
+        internalType: "uint256[]",
+        name: "listBatchId",
+        type: "uint256[]",
+      },
+      {
+        internalType: "uint256",
         name: "category",
-        type: "uint8",
-      },
-      {
-        internalType: "uint256",
-        name: "testTime",
         type: "uint256",
       },
       {
         internalType: "uint256",
-        name: "area",
+        name: "time",
         type: "uint256",
       },
       {
         internalType: "uint256",
-        name: "production",
+        name: "quantity",
         type: "uint256",
       },
     ],
-    name: "addPlant",
+    name: "addPreWarehouse",
     outputs: [
       {
         internalType: "bool",
@@ -165,7 +97,7 @@ export const ABI = [
     inputs: [
       {
         internalType: "uint256",
-        name: "farmerId",
+        name: "processorId",
         type: "uint256",
       },
       {
@@ -175,11 +107,30 @@ export const ABI = [
       },
       {
         internalType: "uint256[]",
-        name: "listHarvestId",
+        name: "listBatchId",
         type: "uint256[]",
       },
     ],
-    name: "addPrepare",
+    name: "addProcessing",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "category",
+        type: "uint256",
+      },
+    ],
+    name: "addProcessor",
     outputs: [
       {
         internalType: "bool",
@@ -201,7 +152,7 @@ export const ABI = [
     inputs: [
       {
         internalType: "address",
-        name: "farmerDatabaseContractAddress",
+        name: "processingDatabaseContractAddress",
         type: "address",
       },
     ],
@@ -255,64 +206,6 @@ export const ABI = [
   },
   {
     inputs: [],
-    name: "farmerDatabase",
-    outputs: [
-      {
-        internalType: "contract FarmerDatabase",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getListFarmer",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "uint256",
-            name: "farmerId",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "famrerIdentifyId",
-            type: "uint256",
-          },
-          {
-            internalType: "string",
-            name: "farmerName",
-            type: "string",
-          },
-          {
-            internalType: "uint256",
-            name: "farmerPhone",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "famrerAddress",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "category",
-            type: "uint256",
-          },
-        ],
-        internalType: "struct Farmer[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
     name: "getListFolWarehouse",
     outputs: [
       {
@@ -324,7 +217,7 @@ export const ABI = [
           },
           {
             internalType: "uint256",
-            name: "prepareId",
+            name: "processingId",
             type: "uint256",
           },
           {
@@ -353,19 +246,24 @@ export const ABI = [
   },
   {
     inputs: [],
-    name: "getListHarvest",
+    name: "getListPreWarehouse",
     outputs: [
       {
         components: [
           {
             internalType: "uint256",
-            name: "harvestId",
+            name: "batchId",
             type: "uint256",
           },
           {
             internalType: "uint256",
-            name: "farmerId",
+            name: "processorId",
             type: "uint256",
+          },
+          {
+            internalType: "uint256[]",
+            name: "listbatchId",
+            type: "uint256[]",
           },
           {
             internalType: "uint256",
@@ -374,11 +272,16 @@ export const ABI = [
           },
           {
             internalType: "uint256",
-            name: "plantId",
+            name: "time",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "quantity",
             type: "uint256",
           },
         ],
-        internalType: "struct Harvest[]",
+        internalType: "struct PreWarehouse[]",
         name: "",
         type: "tuple[]",
       },
@@ -388,63 +291,18 @@ export const ABI = [
   },
   {
     inputs: [],
-    name: "getListPlant",
+    name: "getListProcessing",
     outputs: [
       {
         components: [
           {
             internalType: "uint256",
-            name: "plantId",
+            name: "processingId",
             type: "uint256",
           },
           {
             internalType: "uint256",
-            name: "farmerId",
-            type: "uint256",
-          },
-          {
-            internalType: "enum CATEGORY",
-            name: "category",
-            type: "uint8",
-          },
-          {
-            internalType: "uint256",
-            name: "testTime",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "area",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "production",
-            type: "uint256",
-          },
-        ],
-        internalType: "struct Plant[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getListPrepare",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "uint256",
-            name: "prepareId",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "farmerId",
+            name: "processorId",
             type: "uint256",
           },
           {
@@ -454,11 +312,41 @@ export const ABI = [
           },
           {
             internalType: "uint256[]",
-            name: "listHarvestId",
+            name: "listBatchId",
             type: "uint256[]",
           },
         ],
-        internalType: "struct Prepare[]",
+        internalType: "struct Processing[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getListProcessor",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "uint256",
+            name: "processorId",
+            type: "uint256",
+          },
+          {
+            internalType: "address",
+            name: "processorAddress",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "category",
+            type: "uint256",
+          },
+        ],
+        internalType: "struct Processor[]",
         name: "",
         type: "tuple[]",
       },
@@ -479,8 +367,21 @@ export const ABI = [
     stateMutability: "view",
     type: "function",
   },
+  {
+    inputs: [],
+    name: "processingDatabase",
+    outputs: [
+      {
+        internalType: "contract ProcessingDatabase",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
 ];
-export const ADDRESS = "0xb038544D438C3bFC5CaBD683a3E3187765d5D801";
+export const ADDRESS = "0xA44745fB2af9837FbF40C8001c8Fa387DEb6CbFa";
 
 export async function getContract() {
   const provider = new Web3.providers.HttpProvider("https://ganache.ftisu.vn");
