@@ -1,10 +1,14 @@
 import express from "express";
-const routers = express.Router();
 import test from "./test/test.js";
 import farmer from "./farmer/index.js";
+import user from "./user/index.js"
+import processing from "./processing/index.js"
+
+const routers = express.Router();
 
 routers.use("/test", test);
 routers.use("/farmer", farmer);
-// routers.use("/test", test);
+routers.use("/user",user)
+routers.use("/processing",processing)
 
 export default routers;
